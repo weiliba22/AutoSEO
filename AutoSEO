@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Launch Chrome browser
+driver = webdriver.Chrome()
+
+# Open the search engine website (e.g., Google)
+driver.get("https://www.google.com")
+
+# Enter the search query in the search box
+search_box = driver.find_element_by_name("q")
+search_box.send_keys("your search query")
+
+# Simulate pressing the Enter key to perform the search
+search_box.send_keys(Keys.RETURN)
+
+# Wait for the page to load
+time.sleep(2)
+
+# Click on the first link in the search results (for demonstration purposes only; actual behavior may vary)
+first_result = driver.find_element_by_css_selector("h3")
+first_result.click()
+
+# Wait for some time to view the search results
+time.sleep(5)
+
+# Close the browser
+driver.quit()
